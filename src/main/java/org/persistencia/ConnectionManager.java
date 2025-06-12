@@ -23,12 +23,13 @@ public class ConnectionManager {
      * - user=dev: Nombre de usuario para la autenticación.
      * - password=dev: Contraseña para la autenticación.
      */
-    private static final String STR_CONNECTION = "jdbc:sqlserver://DESKTOP-28GDC9L:1433; " +
-            "encrypt=true; " +
-            "database=ControlGastosDB; " +
+    private static final String STR_CONNECTION = "jdbc:sqlserver://DESKTOP-28GDC9L\\SQLEXPRESS:1433;" +
+            "encrypt=true;" +
+            "database=ControlGastosDB;" +
             "trustServerCertificate=true;" +
-            "user=proyecto2025; " +
-            "password=pro2025";
+            "user=proyecto2025;" +
+            "password=pro2025;";
+
 
     /**
      * Representa la conexión activa a la base de datos. Inicialmente es nula.
@@ -119,10 +120,11 @@ public class ConnectionManager {
         // Verifica si la instancia ya ha sido creada.
         if (instance == null) {
             // Si no existe, crea una nueva instancia de JDBCConnectionManager.
-            instance new ConnectionManager();
+            instance = new ConnectionManager();
         }
         // Retorna la instancia existente (o la recién creada).
         return instance;
     }
 }
+
 

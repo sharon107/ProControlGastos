@@ -1,0 +1,39 @@
+CREATE DATABASE ControlGastosDB;
+GO
+
+USE ControlGastosDB;
+GO
+
+-- Tabla para Usuarios
+CREATE TABLE Users (
+    id INT PRIMARY KEY IDENTITY(1,1),
+    name VARCHAR(100) NOT NULL,
+    passwordHash VARCHAR(64) NOT NULL,
+    email VARCHAR(200) NOT NULL UNIQUE,
+    status TINYINT NOT NULL
+);
+GO
+
+-- Tabla para Gastos (relacionada con Users)
+CREATE TABLE Gastos (
+    Id INT PRIMARY KEY IDENTITY(1,1),
+    UserId INT NOT NULL,
+    Monto DECIMAL(10,2) NOT NULL,
+    Categoria NVARCHAR(50) NOT NULL,
+    Fecha DATE NOT NULL,
+    Descripcion NVARCHAR(200),
+    CONSTRAINT FK_Gastos_Users FOREIGN KEY (UserId) REFERENCES Users(id)
+);
+GO
+
+-- Tabla para Ingresos (relacionada con Users)
+CREATE TABLE Ingresos (
+    Id INT PRIMARY KEY IDENTITY(1,1),
+    UserId INT NOT NULL,
+    Monto DECIMAL(10,2) NOT NULL,
+    Fuente NVARCHAR(50) NOT NULL,
+    Fecha DATE NOT NULL,
+    Descripcion NVARCHAR(200),
+    CONSTRAINT FK_Ingresos_Users FOREIGN KEY (UserId) REFERENCES Users(id)
+);
+GO

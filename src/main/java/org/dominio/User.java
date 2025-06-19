@@ -8,6 +8,7 @@ public class User {
     private byte status;
 
     public User() {
+
     }
 
     public User(int id, String name, String passwordHash, String email, byte status) {
@@ -30,7 +31,7 @@ public class User {
         return name;
     }
 
-    public void setName (String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
@@ -38,7 +39,7 @@ public class User {
         return passwordHash;
     }
 
-    public void setPasswordHash (String passwordHash) {
+    public void setPasswordHash(String passwordHash) {
         this.passwordHash = passwordHash;
     }
 
@@ -46,7 +47,7 @@ public class User {
         return email;
     }
 
-    public void setEmail (String email) {
+    public void setEmail(String email) {
         this.email = email;
     }
 
@@ -54,7 +55,7 @@ public class User {
         return status;
     }
 
-    public void setStatus (byte status) {
+    public void setStatus(byte status) {
         this.status = status;
     }
 
